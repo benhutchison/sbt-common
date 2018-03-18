@@ -16,15 +16,11 @@ scalacOptions ++= Seq(Opts.compile.deprecation, "-feature")
 resolvers += Resolver.url("typesafe", url("http://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
 
 sonatypeProfileName := "com.github.benhutchison"
+publishTo := sonatypePublishTo.value
+
 publishMavenStyle := true
 licenses += ("MIT license", url("http://opensource.org/licenses/MIT"))
 homepage := Some(url("https://github.com/benhutchison"))
 developers := List(Developer("benhutchison", "Ben Hutchison", "brhutchison@gmail.com", url = url("https://github.com/benhutchison")))
 scmInfo := Some(ScmInfo(url("https://github.com/benhutchison"), "scm:git:https://github.com/benhutchison"))
 publishArtifact in Test := false
-publishTo := Some(
-  if (isSnapshot.value)
-    Opts.resolver.sonatypeSnapshots
-  else
-    Opts.resolver.sonatypeStaging
-)

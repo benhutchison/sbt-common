@@ -94,7 +94,7 @@ trait SbtCommonBase {
   )
 
   lazy val publishSettings = Seq(
-    sonatypeProfileName := "com.github.benhutchison",
+    xerial.sbt.Sonatype.SonatypeKeys.sonatypeProfileName := "com.github.benhutchison",
     publishMavenStyle := true,
     licenses += ("MIT license", url("http://opensource.org/licenses/MIT")),
     homepage := Some(url("https://github.com/benhutchison")),
