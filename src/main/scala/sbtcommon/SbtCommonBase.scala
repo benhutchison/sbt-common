@@ -93,6 +93,22 @@ trait SbtCommonBase {
     "-Xfuture"
   )
 
+  lazy val publishSettings = Seq(
+    sonatypeProfileName := "com.github.benhutchison",
+    publishMavenStyle := true,
+    licenses += ("MIT license", url("http://opensource.org/licenses/MIT")),
+    homepage := Some(url("https://github.com/benhutchison")),
+    developers := List(Developer("benhutchison", "Ben Hutchison", "brhutchison@gmail.com", url = url("https://github.com/benhutchison"))),
+    scmInfo := Some(ScmInfo(url("https://github.com/benhutchison"), "scm:git:https://github.com/benhutchison")),
+    publishArtifact in Test := false,
+    publishTo := Some(
+      if (isSnapshot.value)
+        Opts.resolver.sonatypeSnapshots
+      else
+        Opts.resolver.sonatypeStaging
+    ),
+  )
+
   lazy val scalacAllOptions = scalacCommonOptions ++ scalacStrictOptions
 
   def crossProjectRef(relPath: String) = (subpart: String) => ProjectRef(file(relPath), subpart)
