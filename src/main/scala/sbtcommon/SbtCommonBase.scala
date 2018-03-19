@@ -85,10 +85,8 @@ trait SbtCommonBase {
   )
 
   lazy val scalacStrictOptions = Seq(
-    "-Xfatal-warnings",
     "-Yno-adapted-args",
     "-Ywarn-dead-code",
-    "-Ywarn-numeric-widen",
     "-Ywarn-value-discard",
     "-Xfuture"
   )
