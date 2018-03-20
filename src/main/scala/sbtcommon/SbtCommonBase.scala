@@ -111,8 +111,37 @@ trait SbtCommonBase {
 
   def crossProjectRef(relPath: String) = (subpart: String) => ProjectRef(file(relPath), subpart)
 
+  sealed trait JvmOrJs
+  case object Jvm extends JvmOrJs {
+    override def toString = "JVM"
+  }
+  case object Js extends JvmOrJs {
+    override def toString = "JS"
+  }
+
+  sealed trait ProjOrLib
+  case object Proj extends ProjOrLib
+  case object Lib extends ProjOrLib
+
+
+  def dependProjectOrLibrary(name: String, depType: ProjOrLib)(
+    groupId: String, version: String, artifactId: String = name, projPath: String = s"../$name")(
+    jvmOrJs: JvmOrJs)(
+    p: Project): Project = depType match {
+    case Proj =>
+      val proj = ProjectRef(file(projPath), s"$name$jvmOrJs")
+      p.dependsOn(proj).aggregate(proj)
+    case Lib =>
+      p.settings(libraryDependencies += groupId %%% artifactId % version)
+  }
+
   implicit class RichProject(p: Project) {
     def dependAggregate(proj: ProjectReference) = p.dependsOn(proj).aggregate(proj)
+
+
+
+
+
   }
 
 

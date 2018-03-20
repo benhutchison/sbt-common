@@ -11,6 +11,8 @@ addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.22")
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "2.3")
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.1")
 
+libraryDependencies += "org.typelevel" %% "mouse" % "0.16"
+
 scalacOptions ++= Seq(Opts.compile.deprecation, "-feature")
 
 resolvers += Resolver.url("typesafe", url("http://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
