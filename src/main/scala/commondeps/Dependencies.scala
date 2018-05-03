@@ -7,7 +7,6 @@ object Dependencies {
 
   val extendedLibraries = Seq(
     "prickle",
-    "quicklens",
   )
 
 
@@ -29,6 +28,7 @@ object Dependencies {
     "hoard",
     "simulacrum",
     "refined",
+    "fs2",
   )
 
   val testLibraries = Seq(
@@ -51,7 +51,7 @@ object Dependencies {
     "algebra"        -> "1.0.0",
     "catalysts"      -> "0.1.0",
     "cats"           -> "1.1.0",
-    "cats-effect"    -> "0.10",
+    "cats-effect"    -> "0.10.1",
     "cats-mtl"       -> "0.2.3",
     "discipline"     -> "0.8",
     "export-hook"    -> "1.2.0",
@@ -71,10 +71,10 @@ object Dependencies {
     "shapeless"      -> "2.3.2",
     "simulacrum"     -> "0.12.0",
     "specs2"         -> "4.0.3",
-    "eff"            -> "5.1.0",
+    "eff"            -> "5.2.0",
+    "fs2"            -> "0.10.4",
     "mouse"          -> "0.16",
     "hoard"          -> "0.4",
-    "quicklens"      -> "1.4.8",
     "prickle"        -> "1.1.13",
     "gesture"        ->  "0.4",
     "effx"           ->  "0.1-SNAPSHOT",
@@ -130,8 +130,9 @@ object Dependencies {
     "specs2-core"           -> ("specs2"          , "org.specs2"                   , "specs2-core"),
     "specs2-scalacheck"     -> ("specs2"          , "org.specs2"                   , "specs2-scalacheck"),
     "eff"                   -> ("eff"             , "org.atnos"                    , "eff"),
-    "quicklens"             -> ("quicklens"       , "com.softwaremill.quicklens"   , "quicklens"),
     "mouse"                 -> ("mouse"           , "org.typelevel"                , "mouse"),
+    "fs2"                   -> ("fs2"             , "co.fs2"                       , "fs2-core"),
+
     "hoard"                 -> ("hoard"           , "com.github.benhutchison"      , "hoard"),
     "prickle"               -> ("prickle"         , "com.github.benhutchison"      , "prickle"),
     "gesture"               -> ("gesture"         , "com.github.benhutchison"      , "gesture"),
